@@ -1,0 +1,507 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:wght@300;400;500;700;900&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  overflow: auto;
+  overflow: initial;
+  font-family: 'Raleway', sans-serif;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 75px;
+  background-color: rgba(255, 255, 255, 0);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+}
+.header-scrolled{
+  background-color: #ffffff9f;
+  transition: background-color 0.3s ease;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  padding-top: 10px;
+}
+.logo img {
+  width: 250px;
+}
+nav {
+  display: flex;
+  justify-content: center;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0; /* Ensures there's no default margin */
+  display: flex;
+  gap: 20px;
+  position: relative;
+}
+
+nav li {
+  cursor: pointer;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  padding: 5px 10px;
+  position: relative;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #555;
+}
+
+nav a::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #333;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+
+nav a.active::before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+nav a.hovered::before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Hamburger Icon */
+.hamburger {
+  display: none; /* Initially hidden */
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  margin: 2px 0;
+  transition: all 0.3s;
+}
+
+/* Mobile Navigation */
+.mobile-nav {
+  display: none; /* Initially hidden */
+  position: absolute;
+  top: 75px; /* Height of the header */
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  z-index: 999999;
+}
+
+.mobile-nav ul {
+  padding: 0;
+  list-style-type: none;
+  width: 100%; /* Take up full width of the container */
+  display: flex; /* Set as flex container */
+  flex-direction: column; /* Display items vertically */
+  align-items: center; /* Centre items horizontally */
+  justify-content: center; /* Centre items vertically */
+}
+
+.mobile-nav li {
+  padding: 10px 20px;
+  text-align: center; /* Centre the text */
+}
+
+.mobile-nav a {
+  text-decoration: none;
+  color: #333;
+  display: block; /* Make the links block elements to take up full width */
+}
+
+/* Media Query for Mobile */
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none; /* Hide desktop navigation */
+  }
+
+  .hamburger {
+    display: flex; /* Show hamburger icon */
+  }
+
+  .mobile-nav {
+    height: calc(100vh - 60px); /* Take up the rest of the viewport height */
+  }
+}
+
+.container {
+  overflow-y: scroll;
+  height: 100vh;
+  /* padding-top: 60px; */
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+}
+
+.panel {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  scroll-snap-align: start;
+}
+
+.blue {
+  background-color: #fdfdfd;
+}
+
+.orange {
+  background-color: #fdfdfd;
+}
+
+.red {
+  background-color: #fdfdfd;
+}
+
+#about {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  background-image: url("https://ukreiif.deliciousdemo.co.uk/content/uploads/sites/3/2023/09/home-bg-scaled.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  /*   padding-left: 50%; */
+  position: relative;
+  overflow: hidden;
+}
+
+.about-ubg{
+  font-size: 3rem;
+  display: block;
+  line-height: 4rem;
+  font-weight: 600;
+}
+.about_ubg{
+  padding-left: 0.8rem;
+  display: block;
+}
+@media (max-width: 768px) {
+  #about{
+    display: grid;
+    grid-template-columns: 1fr !important;
+    place-content: center;
+    position: relative;
+    padding-top: 6rem;
+  }
+  .text-section{
+    background-color: #ffffffb7;
+  }
+  .image-section{
+    position: absolute;
+    top: 20%;
+    right: 1%;
+    height: 180px !important;
+    width: 180px !important;
+    border-radius: 50%;
+  }
+}
+.text-section {
+ max-width: 800px;
+}
+#business {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-image: url("https://ukreiif.deliciousdemo.co.uk/content/uploads/sites/3/2023/09/double-bg.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  text-align: center;
+  overflow: hidden;
+}
+.business-content{
+  z-index: 10;
+}
+.business-content h1{
+  margin-bottom: 1rem !important;
+}
+.business-content span{
+  display: grid;
+    grid-template-columns: auto 1fr;
+    justify-items: start;
+    align-items: end;
+    gap: 0.5rem;
+}
+@media (max-width: 768px) {
+  .business-content span{
+    display: grid;
+      grid-template-columns: 1fr;
+      justify-items: start;
+      align-items: end;
+      gap: 0.5rem;
+  }
+}
+
+.business-content span a{
+  font-weight: 600;
+  color: #000;
+  letter-spacing: 0.2;
+}
+#business span img{
+  width: 300px;
+}
+.white-overlay{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #ffffffe5;
+  width: 50%;
+  z-index: 1;
+}
+.about-white-overlay{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #ffffffe5;
+  width: 100%;
+  z-index: 1;
+}
+@media (max-width: 768px) {
+  .white-overlay{
+    width: 100%;
+  }
+}
+.business-list {
+  display: grid;
+  justify-content: center;
+  gap: 5px;
+}
+
+
+@media (max-width: 768px) {
+  #business span img{
+    width: 160px;
+  }
+}
+#charity {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-image: url("https://ukreiif.deliciousdemo.co.uk/content/uploads/sites/3/2023/09/c.png");
+  background-repeat: no-repeat;
+  background-position: center left;
+  background-size: contain;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  #charity {
+    grid-template-columns: 1fr !important;
+  }
+  .charity{
+    background-color: #ffffffb7;
+  }
+  .charity-bg{
+    display: none;
+  }
+}
+
+#about::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #00000015; /* Overlay colour */
+  z-index: 0; /* Ensures the overlay is below the content */
+}
+/* #about::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 50%;
+  height: 100%;
+  background-image: url("https://www.built-environment-networking.com/content/uploads/2023/09/Keith-Griffiths.png");
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  background-size: contain;
+  z-index: 2;
+} */
+.image-section {
+  height: 100%;
+  background-image: url("https://www.built-environment-networking.com/content/uploads/2023/09/Keith-Griffiths.png");
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  background-size: contain;
+  z-index: 10;
+}
+.image-section {
+  order: 0; /* default order */
+}
+
+.text-section {
+  order: 1; /* default order */
+  position: relative;
+  z-index: 10;
+}
+.text-section svg{
+  position: absolute;
+  left: -70px;
+  bottom: 5%;
+  height: 150px;
+}
+.line {
+  position:absolute;
+  right: -50px;
+  bottom: 80px;
+  width:200px;
+  height:2px;
+  background-color:red;
+  transform: rotate(90deg);
+}
+@media (max-width: 768px) {
+  .line{
+    right: -50px;
+    bottom: 300px;
+  }
+}
+
+.text-section p, .text-section h1 {
+  clip-path: inset(0 0 0 100%); /* Initially hide the text on the left */
+  opacity: 1;
+}
+@media (max-width: 768px) {
+  .image-section {
+    order: 1; /* change order to be after .k-t */
+    z-index: 15;
+  }
+
+  .text-section {
+    order: 0; /* change order to be before .k */
+  }
+  .text-section{
+    height: 100vh;
+    display: grid;
+    place-content: center;
+    justify-items: start;
+    background-color: #ffffffe1;
+  }
+  .text-section p{
+    padding: 0px 5px;
+  }
+}
+
+.contact{
+  display: grid;
+  justify-items: center;
+}
+.contact svg{
+  height: 1.5rem;
+  padding-right: 5px;
+}
+.contact span{
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+}
+@media (max-width: 768px) {
+  .contact{
+    font-size: 0.8rem;
+  }
+}
+
+#about h1,
+#business h1,
+#charity h1,
+#contact h1 {
+  margin: 0;
+  padding: 20px;
+  position: relative;
+  z-index: 2;
+  font-size: 5rem;
+  position: relative;
+  display: inline-block;
+  text-transform: uppercase;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+  letter-spacing: 5px;
+}
+
+@media (max-width: 768px) {
+  #about h1,
+  #business h1,
+  #charity h1,
+  #contact h1 {
+    font-size: 2rem;
+  }
+  #business {
+    grid-template-columns: 1fr;
+    background-size: cover;
+  }
+  #charity {
+    grid-template-columns: 1fr;
+    background-size: cover;
+    text-align: center;
+  }
+}
+
+#about h1::after,
+#business h1::after,
+#charity h1::after,
+#contact h1::after {
+  content: "";
+  width: 100%;
+  border-bottom: solid 3px #000;
+  position: absolute;
+  left: 0;
+  bottom: 15px;
+}
+.black-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%; /* Initially covering the whole section */
+  background-color: black;
+  z-index: 99999;
+}
+.panel {
+  position: relative;
+}
+
+.linkedin {
+  transition: all 0.3s ease;
+  transform-origin: center center;
+}
+.linkedin-rotate{
+  transform: rotate(20deg);
+}
